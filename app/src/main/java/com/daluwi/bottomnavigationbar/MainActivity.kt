@@ -33,11 +33,6 @@ class MainActivity : ComponentActivity() {
                         startDestination = BottomNavigationItem.HOME.description,
                         modifier = Modifier.padding(paddingValues = innerPadding)
                     ) {
-                        /*
-                         * Disabling all animations in the following might be useful,
-                         * because they cause malfunctions when quickly switching
-                         * between screens! At least in preview builds...
-                         */
                         composable(
                             route = BottomNavigationItem.HISTORY.description,
 //                            enterTransition = { EnterTransition.None },
