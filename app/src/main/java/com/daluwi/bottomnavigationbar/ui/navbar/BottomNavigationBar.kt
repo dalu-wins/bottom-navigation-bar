@@ -10,10 +10,15 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.compose.currentBackStackEntryAsState
 
 @Composable
 fun BottomNavigationBar(navController: NavController) {
+
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentDestination = navBackStackEntry?.destination
 
     var selectedItem by rememberSaveable { mutableIntStateOf(1) }
     val items = listOf(
@@ -24,7 +29,7 @@ fun BottomNavigationBar(navController: NavController) {
 
     NavigationBar {
         items.forEachIndexed { index, item ->
-            val selected = selectedItem == index
+            val selected = currentDestination?.hierarchy?.any { it.route == item.description } == true
 
             NavigationBarItem(
                 icon = {

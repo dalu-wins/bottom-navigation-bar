@@ -2,6 +2,7 @@ package com.daluwi.bottomnavigationbar.ui.navbar
 
 import androidx.compose.ui.graphics.vector.ImageVector
 
+
 class BottomNavigationItem(var composedIcon: ComposedIcon, var description: String) {
     companion object {
         val HOME = BottomNavigationItem(ComposedIcon.HOME, "Home")
