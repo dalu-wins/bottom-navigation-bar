@@ -5,12 +5,9 @@
 - Handles back gesture and back button correctly
 
 # Preview
-## Dynamic Color Theme
-<table>
-  <tr>
-    <td><img src="https://github.com/dalu-wins/bottom-navigation-bar/blob/master/screenshots/Screenshot_blue.png"></td>
-    <td><img src="https://github.com/dalu-wins/bottom-navigation-bar/blob/master/screenshots/Screenshot_brown.png"></td>
-    <td><img src="https://github.com/dalu-wins/bottom-navigation-bar/blob/master/screenshots/Screenshot_blue_dark.png"></td>
-    <td><img src="https://github.com/dalu-wins/bottom-navigation-bar/blob/master/screenshots/Screenshot_brown_dark.png"></td>
-  </tr>
-</table>
+<div style="display: flex; justify-content: space-around;">
+  <img src="screenshots/Screenshot_blue.png" alt="blue theme, lightmode" width="24%">
+  <img src="screenshots/Screenshot_brown.png" alt="brown theme, lightmode" width="24%">
+  <img src="screenshots/Screenshot_blue_dark.png" alt="blue theme, darkmode" width="24%">
+  <img src="screenshots/Screenshot_brown_dark.png" alt="brown theme, darkmode" width="24%">
+</div>
