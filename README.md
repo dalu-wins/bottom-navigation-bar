@@ -1,7 +1,8 @@
 # Features
 - Dynamic colors based on the system's color pallette
+- Showing outlined icon by default and filled icon when selected
 - Stays in the correct tab when screen is rebuild
-- Correct back gesture and back button handling
+- Handles back gesture and back button correctly
 
 # Preview
 ## Dynamic Color Theme
