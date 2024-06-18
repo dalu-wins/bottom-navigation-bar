@@ -6,7 +6,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBarDefaults
 import androidx.compose.material3.Scaffold
@@ -14,14 +13,9 @@ import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.daluwi.bottomnavigationbar.ui.navbar.AppNavHost
 import com.daluwi.bottomnavigationbar.ui.navbar.BottomNavigationBar
-import com.daluwi.bottomnavigationbar.ui.navbar.BottomNavigationItem
-import com.daluwi.bottomnavigationbar.ui.screen.HistoryScreen
-import com.daluwi.bottomnavigationbar.ui.screen.HomeScreen
-import com.daluwi.bottomnavigationbar.ui.screen.SettingsScreen
 import com.daluwi.bottomnavigationbar.ui.theme.BottomNavigationBarTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,33 +24,16 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             BottomNavigationBarTheme {
+                // Setting the system navigation bar color
                 val window: Window = this.window
                 window.navigationBarColor = getNavigationBarColor()
+
+                // Setting up bottom navigation
                 val navController = rememberNavController()
                 Scaffold(modifier = Modifier.fillMaxSize(),
                     bottomBar = { BottomNavigationBar(navController) }
                 ) { innerPadding ->
-                    NavHost(
-                        navController = navController,
-                        startDestination = BottomNavigationItem.HOME.description,
-                        modifier = Modifier.padding(paddingValues = innerPadding)
-                    ) {
-                        composable(
-                            route = BottomNavigationItem.HISTORY.description,
-                        ) {
-                            HistoryScreen(navController)
-                        }
-                        composable(
-                            route = BottomNavigationItem.HOME.description
-                        ) {
-                            HomeScreen(navController)
-                        }
-                        composable(
-                            route = BottomNavigationItem.SETTINGS.description,
-                        ) {
-                            SettingsScreen(navController)
-                        }
-                    }
+                    AppNavHost(navController, innerPadding)
                 }
             }
         }
